@@ -12,7 +12,9 @@ class LoginController extends Controller {
   public function __invoke (LoginRequest $request) {
     $input = $request -> validated();
 
-    if (!Auth::attempt($input)) {}
+    if (!Auth::attempt($input)) {
+      return 'error';
+    }
 
     return auth() -> user();
   }
